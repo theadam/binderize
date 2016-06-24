@@ -11,7 +11,9 @@ export function applyFirst(fn, ...args) {
 }
 
 export function applyN(n, fn, ...args) {
-  return fn(...args.slice(0, n), this, ...args.slice(n));
+  const addedArgs = args.length >= n ? 0 : n - args.length;
+  const firstArgs = args.concat(Array(addedArgs));
+  return fn(...firstArgs.slice(0, n), this, ...args.slice(n));
 }
 
 function papplyN(n) {
@@ -20,9 +22,11 @@ function papplyN(n) {
   }
 }
 
-const binder = applier => fn => {
+const binder = applier => function(fn) {
+  const a = this;
   return function(...args) {
-    return applier.apply(this, args);
+    const app = a ? a(applier) : applier;
+    return app.apply(this, [fn].concat(args));
   }
 }
 
