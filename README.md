@@ -71,7 +71,7 @@ const append = bindFirst((list, a) => [...list, a]);
 Converts a function to one where the `this` context is passed as the last argument to the wrapped function.
 
 ```javascript
-const append = bindFirst((a, list) => [...list, a]);
+const append = bindLast((a, list) => [...list, a]);
 
 [1, 2, 3]::append(4); // [1, 2, 3, 4]
 ```
