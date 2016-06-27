@@ -47,7 +47,7 @@ var youngest = users
 Now you can use your favorite libraries and functions with this new syntax.
 
 ## Binder API
-Each binder takes a function and allows it to accept one of its arguments as its `this` context, instead of as a regularly passed argument.  The rule of thumb is to use the binder that corresponds to the argument you want to be on the left of the bind (`::`).
+Each binder takes a function and allows it to accept one of its arguments as its `this` context, instead of regularly passed argument.  The rule of thumb is to use the binder that corresponds to the argument you want to be on the left of the bind (`::`).
 
 #### bind
 Converts a single argument function that accepts that argument as its `this` context.
@@ -80,12 +80,12 @@ const append = bindFirst((a, list) => [...list, a]);
 Converts a function to one where the `this` context is passed as the Nth argument to the wrapped function.
 
 ```javascript
-const greet = bindN(2, (greeting, name, ending) => `${greeting} ${name}, ${ending}`);
+const greet = bindN(1, (greeting, name, ending) => `${greeting} ${name}, ${ending}`);
 
 "Adam"::greet("Hello", "how are you?"); // "Hello Adam, how are you?";
 ```
 
-## Modifiers - (Expiriemntal)
+## Modifiers - (Experimental)
 
 Modifiers can be used to enable functions to work in more contexts than they were originally defined.  You get a higher level of functionality with the same sugary function bind syntax.  These modifiers can also be stacked to lift to combine these contexts.  Import these from `binderize/modifiers`.
 
@@ -93,10 +93,10 @@ Modifiers can be used to enable functions to work in more contexts than they wer
 import { ... } from 'binderize/modifiers'
 ```
 
-These are expirimental, and I am not sure how useful they will be.  Any ideas are welcome!
+These are experimental, and I am not sure how useful they will be.  Any ideas are welcome!
 
 #### maybe
-Allows a function to not be called then the payload is null or undefined
+Allows a function to not be called when the payload is null or undefined to avoid exceptions
 
 ```javascript
 const upcase = x => x.toUpperCase();
@@ -107,14 +107,14 @@ null::maybeUpcase() // null / Does not throw an error
 ```
 
 #### on
-Allows a functionto run with a certain field of an object as the payload.
+Allows a function to run with a certain field of an object as the payload.
 
 ```javascript
 const increment = x => x + 1;
-const getOlder = on('age')::bind(increment);
+const growOlder = on('age')::bind(increment);
 
 const user = { name: 'Adam', age: 28 };
-user::getOlder() // { name: 'Adam', age: 29 };
+user::growOlder() // { name: 'Adam', age: 29 };
 ```
 
 #### promise
