@@ -46,6 +46,27 @@ var youngest = users
 
 Now you can use your favorite libraries and functions with this new syntax.
 
+### Converting a [pipeline operator example](https://github.com/mindeavor/es-pipeline-operator#introduction)
+
+```javascript
+const doubleSay = bind(str => {
+  return str + ", " + str;
+});
+
+const capitalize = bind(str => {
+  return str[0].toUpperCase() + str.substring(1);
+});
+
+const exclaim = bind(str => {
+  return str + '!';
+});
+
+"hello"
+  ::doubleSay
+  ::capitalize
+  ::exclaim; // "Hello, hello!"
+```
+
 ## Binder API
 Each binder takes a function and allows it to accept one of its arguments as its `this` context, instead of regularly passed argument.  The rule of thumb is to use the binder that corresponds to the argument you want to be on the left of the bind (`::`).
 
