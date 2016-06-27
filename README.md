@@ -159,7 +159,7 @@ const incrementAll = map::bind(increment);
 ```
 
 ### Stacking / Chaining
-As mentioned these modifiers can be chained.  Imagine pulling a list of users back from an API, incrementing a nullable age variable (or leaving it null), then sending the updated users back to the API.  You can use a stack of modifiers to lift a simple function like `increment` into the context you want it to work in.
+As mentioned these modifiers can be chained.  Imagine pulling a list of users back from an API, incrementing a nullable age variable (or leaving it null), then sending the updated users back to the API.  You can use a stack of modifiers to lift a simple function like `increment` into the context you want it to work in.  This makes for a very declarative way of creating functions with complex functionality.
 
 ```javascript
 const increment = x => x + 1;
