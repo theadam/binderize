@@ -179,3 +179,15 @@ This updated list will be passed to the `saveUsers` function above:
   }
 ]
 ```
+
+Stacking can also be used in other creative ways and even combined with the different `apply` functions in binderize (`apply`, `applyFirst`, `applyLast`, `applyN`) to create some other useful functionality.
+
+`safeThen` implicitly handles `null` / `undefined` values in promises.
+
+```javascript
+const safeThen = promise::maybe(apply);
+
+Promise.resolve(null)::safeThen(x => x.toUpperCase()).then(x => console.log(x)); // logs null - Does not error
+Promise.resolve("test")::safeThen(x => x.toUpperCase()).then(x => console.log(x)); // logs "TEST"
+```
+
