@@ -107,7 +107,7 @@ null::maybeUpcase() // null / Does not throw an error
 ```
 
 #### on
-Allows a function to run with a certain field of an object as the payload.
+Allows a function to run with a certain field of an object as the payload.  The original payload is not modified.
 
 ```javascript
 const increment = x => x + 1;
@@ -138,7 +138,7 @@ const incrementAll = map::bind(increment);
 ```
 
 ### Stacking / Chaining
-As mentioned these modifiers can be chained.  Imaging pulling a list of users back from an API, incrementing a nullable age variable (or leaving them null), then sending them back to the API.  You can use a stack of modifiers to lift a simple function like `increment` into the context you want it work in.
+As mentioned these modifiers can be chained.  Imagine pulling a list of users back from an API, incrementing a nullable age variable (or leaving it null), then sending the updated users back to the API.  You can use a stack of modifiers to lift a simple function like `increment` into the context you want it to work in.
 
 ```javascript
 const increment = x => x + 1;
