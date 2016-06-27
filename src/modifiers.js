@@ -1,3 +1,5 @@
+const id = x => x;
+
 export const mod = m => function(...margs) {
   const top = this;
   return function(app) {
