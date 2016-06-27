@@ -127,6 +127,28 @@ null::maybeUpcase() // null / Does not throw an error
 "test"::maybeUpdate() // "TEST"
 ```
 
+This can be used to emulate the [safe navigation operator](https://en.wikipedia.org/wiki/Safe_navigation_operator) from other languages.
+
+```javascript
+const user = {
+  info: {
+    name: {
+      first: 'Adam',
+    },
+  },
+};
+
+const user2 = {
+  info: null,
+};
+
+const get = field => obj => obj[field]
+const [ info, name, first ] = ['info', 'name', 'first'].map(get).map(maybe::bind);
+
+user::info()::name()::first(); // 'Adam'
+user2::info()::name()::first(); // null - No error
+```
+
 #### on
 Allows a function to run with a certain field of an object as the payload.  The original payload is not modified.
 
