@@ -124,7 +124,7 @@ const upcase = x => x.toUpperCase();
 const maybeUpcase = maybe::bind(upcase);
 
 null::maybeUpcase() // null / Does not throw an error
-"test"::maybeUpdate() // "TEST"
+"test"::maybeUpcase() // "TEST"
 ```
 
 This can be used to emulate the [safe navigation operator](https://en.wikipedia.org/wiki/Safe_navigation_operator) from other languages.
