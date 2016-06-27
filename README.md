@@ -138,7 +138,7 @@ const incrementAll = map::bind(increment);
 ```
 
 ### Stacking / Chaining
-As mentioned these can be changed.  Imaging pulling a list of users back from an API, incrementing a nullable age variable (or leaving them null), then sending them back to the API.  You can use a stack of modifiers to lift a simple function like `increment` into the context you want it work in.
+As mentioned these modifiers can be chained.  Imaging pulling a list of users back from an API, incrementing a nullable age variable (or leaving them null), then sending them back to the API.  You can use a stack of modifiers to lift a simple function like `increment` into the context you want it work in.
 
 ```javascript
 const increment = x => x + 1;
