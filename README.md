@@ -191,3 +191,6 @@ Promise.resolve(null)::safeThen(x => x.toUpperCase()).then(x => console.log(x));
 Promise.resolve("test")::safeThen(x => x.toUpperCase()).then(x => console.log(x)); // logs "TEST"
 ```
 
+## License
+
+MIT
