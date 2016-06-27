@@ -1,4 +1,4 @@
-# Binderize - expirimenting with function bind syntax
+# Binderize - Experimenting with function bind syntax
 
 Interested in using the new [function bind syntax](https://github.com/zenparsing/es-function-bind) but none of your functions are compatible?  Binderize them!
 
